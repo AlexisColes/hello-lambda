@@ -35,8 +35,8 @@ jobs:
       - name: Get Endpoints
         id: endpoints
         run: |
-          echo "put_endpoint=$(npx sls info --verbose | grep 'PUT -' | awk '{print $3}')" >> "$GITHUB_OUTPUT"
-          echo "get_endpoint=$(npx sls info --verbose | grep 'GET -' | awk '{print $3}')" >> "$GITHUB_OUTPUT"
+          echo "put_endpoint=$(npx sls info --verbose | grep 'PUT -' | awk '{print $3}' | sed 's/{.*}/testuser/g')" >> "$GITHUB_OUTPUT"
+          echo "get_endpoint=$(npx sls info --verbose | grep 'GET -' | awk '{print $3}' | sed 's/{.*}/testuser/g')" >> "$GITHUB_OUTPUT"
 
       - name: Test Endpoints
         run: |
