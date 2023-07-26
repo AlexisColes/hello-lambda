@@ -1,21 +1,9 @@
 # hello-lambda
 
-## pre-requisits 
+This solution uses serverless to deploy a lambda, setup api gateway and a dynamoDb table that the lamba uses to store the user data.
 
-node > v18.0
+![](docs/system_diagram.pngimage.png)
 
-if you do not have node install I recommed using NVM to install
+There are some basic unit tests that cover most of the functionality.
 
-to install nvm please run the following command
-```
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.4/install.sh | bash
-```
-
-to install the latest version of nvm 18.X
-```
-nvm install 18
-```
-to use the latest verion of 18.x
-```
-nvm use 18
-```
+[Please see the developer guild to run the project locally](docs/developer_guild.md)
