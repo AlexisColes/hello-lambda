@@ -31,3 +31,20 @@ jobs:
 
       - name: Deploy
         run: npm run deploy
+
+      - name: Get Endpoints
+        id: endpoints
+        run: |
+          echo "put_endpoint=$(npx sls info --verbose | grep 'PUT -' | awk '{print $3}')" >> "$GITHUB_ENV"
+          echo "get_endpoint=$(npx sls info --verbose | grep 'GET -' | awk '{print $3}')" >> "$GITHUB_ENV"
+
+      - name: Test Endpoints
+        run: |
+          put_endpoint="${{ steps.endpoints.outputs.put_endpoint }}"
+          get_endpoint="${{ steps.endpoints.outputs.get_endpoint }}"
+
+          echo $put_endpoint 
+          echo $get_endpoint
+
+
+          
