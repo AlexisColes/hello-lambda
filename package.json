@@ -6,7 +6,8 @@
   "scripts": {
     "build": "tsc",
     "start": "sls offline start",
-    "test": "jest"
+    "test": "jest",
+    "deploy": "sls deploy"
   },
   "keywords": [],
   "author": "alexis.coles@live.co.uk",
