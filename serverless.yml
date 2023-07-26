@@ -1,5 +1,7 @@
 service: hello-world-lambda
-
+plugins:
+  - serverless-offline
+  
 provider:
   name: aws
   runtime: nodejs14.x
