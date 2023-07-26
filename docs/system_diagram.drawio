@@ -55,6 +55,9 @@
                 <mxCell id="25" style="edgeStyle=none;html=1;" edge="1" parent="3" source="12" target="17">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
+                <mxCell id="26" value="" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#BF0816;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.temporary_security_credential;" vertex="1" parent="1">
+                    <mxGeometry x="340" y="340" width="77" height="78" as="geometry"/>
+                </mxCell>
             </root>
         </mxGraphModel>
     </diagram>
