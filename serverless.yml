@@ -1,0 +1,45 @@
+service: hello-world-lambda
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  region: eu-west-1
+  iam:
+    role:
+      statements:
+        - Effect: Allow
+          Action:
+            - dynamodb:PutItem
+            - dynamodb:GetItem
+          Resource:
+            - arn:aws:dynamodb:eu-west-1:*:table/users
+
+functions:
+  helloPut:
+    handler: dist/handler.hello
+    events:
+      - http:
+          path: hello/{username}
+          method: put
+  helloGet:
+    handler: dist/handler.hello
+    events:
+      - http:
+          path: hello/{username}
+          method: get
+
+resources:
+  Resources:
+    UsersTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: users
+        AttributeDefinitions:
+          - AttributeName: username
+            AttributeType: S
+        KeySchema:
+          - AttributeName: username
+            KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 5
+          WriteCapacityUnits: 5

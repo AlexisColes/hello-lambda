@@ -1,0 +1,29 @@
+{
+  "name": "hello-lambda",
+  "version": "1.0.0",
+  "description": "## pre-requisits",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "sls offline start",
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "alexis.coles@live.co.uk",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.119",
+    "@types/jest": "^29.5.3",
+    "aws-sdk-mock": "^5.8.0",
+    "jest": "^29.6.1",
+    "serverless": "^3.33.0",
+    "serverless-offline": "^12.0.4",
+    "serverless-plugin-typescript": "^2.1.5",
+    "ts-jest": "^29.1.1",
+    "typescript": "^5.1.6"
+  },
+  "dependencies": {
+    "aws-lambda": "^1.0.7",
+    "aws-sdk": "^2.1422.0"
+  }
+}
