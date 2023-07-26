@@ -42,9 +42,26 @@ jobs:
         run: |
           put_endpoint="${{ steps.endpoints.outputs.put_endpoint }}"
           get_endpoint="${{ steps.endpoints.outputs.get_endpoint }}"
-
+  
+          echo Testing the following endpoints
           echo $put_endpoint 
           echo $get_endpoint
+
+          # Prepare JSON data
+          json_data='{"dateOfBirth": "1982-12-24"}'
+
+          # Make PUT request with JSON data
+          response_put=$(curl -s -o /dev/null -w "%{http_code}" -X PUT -d "$json_data" -H "Content-Type: application/json" "$put_endpoint")
+
+          # Make GET request
+          response_get=$(curl -s -o /dev/null -w "%{http_code}" -X GET "$get_endpoint")
+
+          if [ "$response_put" -eq 204 ] && [ "$response_get" -eq 200 ]; then
+            echo "Endpoints are working correctly."
+          else
+            echo "Endpoints are not working correctly."
+            exit 1
+          fi
 
 
           
